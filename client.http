@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3333
-@authToken = {{authenticate.response.body.access_token}}
+
 
 # @name create_account
 POST {{baseUrl}}/accounts
@@ -24,7 +24,27 @@ Content-Type: application/json
 
 ###
 
+
+@authToken = {{authenticate.response.body.access_token}}
+
 # @name create_question
 POST {{baseUrl}}/questions
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
+
+{
+  "title": "Nova pergunta",
+  "content": "Teste"
+}
+
+###
+
+# @name create_question
+POST {{baseUrl}}/questions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwNDAxNmUzZC0zOTk4LTQ2MjctOTM3Mi05ZmU4YjU2OWQwNTIiLCJpYXQiOjE3MDcyMzYxNjV9.FrkyL6vLF-mSqu7hlETF6TFc0EQVP5pw3w6P9QLB6TemYtX9K4dxQ3OnVwWAehKJvb4wohG5595Ivv016QnPVR2VkpL3NEKdVq_hpYYg5RCx4aJUXvuVJkbT_2RHtgh6qfj4tHIZVJNCvTO_Z_T3QOsDQI05QXO3la5AvTmOF8WIG-sii0U7BvuL6RVDTNlq5yaw6Ee6iuOKvubgNbMnDrYOaHlY5BeeDEkiEyLuS4jQAgNeuM0cDP2MS-wHQd7QEHskIHH4Q-A6oddbay3JgD0ngjCq0WXm2_aMvTNM9cPIUeORz3hTIc4iCDNFlV3HmGPSuA2_pQtyhr7b4hDkyw
+
+{
+  "title": "Nova pergunta",
+  "content": "Teste"
+}
