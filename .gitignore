@@ -37,3 +37,7 @@ lerna-debug.log*
 data
 
 .env
+
+*-base64.txt
+
+*.pem
