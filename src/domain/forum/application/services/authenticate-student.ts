@@ -5,12 +5,12 @@ import { HashComparer } from '../cryptography/hash-comparer'
 import { Encrypter } from '../cryptography/encrypter'
 import { WrongCredentialsError } from './errors/wrong-credentials-error'
 
-interface AuthenticateStudentUseCaseRequest {
+interface AuthenticateStudentServiceRequest {
   email: string
   password: string
 }
 
-type AuthenticateStudentUseCaseResponse = Either<
+type AuthenticateStudentServiceResponse = Either<
   WrongCredentialsError,
   {
     accessToken: string
@@ -18,7 +18,7 @@ type AuthenticateStudentUseCaseResponse = Either<
 >
 
 @Injectable()
-export class AuthenticateStudentUseCase {
+export class AuthenticateStudentService {
   constructor(
     private studentsRepository: StudentsRepository,
     private hashComparer: HashComparer,
@@ -28,7 +28,7 @@ export class AuthenticateStudentUseCase {
   async execute({
     email,
     password,
-  }: AuthenticateStudentUseCaseRequest): Promise<AuthenticateStudentUseCaseResponse> {
+  }: AuthenticateStudentServiceRequest): Promise<AuthenticateStudentServiceResponse> {
     const student = await this.studentsRepository.findByEmail(email)
 
     if (!student) {
