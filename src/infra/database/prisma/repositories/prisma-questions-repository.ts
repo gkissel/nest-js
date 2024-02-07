@@ -6,6 +6,7 @@ import { PrismaQuestionMapper } from '../mappers/prisma-question-mapper'
 import { PrismaService } from '../prisma.service'
 import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments-repository'
 import { QuestionDetails } from '@/domain/forum/enterprise/entities/value-objects/question-details'
+import { PrismaQuestionDetailsMapper } from '../mappers/prisma-question-details-mapper'
 
 @Injectable()
 export class PrismaQuestionsRepository implements QuestionsRepository {
@@ -14,7 +15,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
     private questionAttachmentsRepository: QuestionAttachmentsRepository,
   ) {}
 
-  async findDetailsBySlug(slug: string) {
+  async findDetailsBySlug(slug: string): Promise<QuestionDetails | null> {
     const question = await this.prisma.question.findUnique({
       where: {
         slug,
@@ -29,9 +30,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
       return null
     }
 
-    // const questionDetails = PrismaQuestionDetailsMapper.toDomain(question)
-
-    return null
+    return PrismaQuestionDetailsMapper.toDomain(question)
   }
 
   async findById(id: string): Promise<Question | null> {
