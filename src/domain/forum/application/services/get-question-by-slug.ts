@@ -2,6 +2,7 @@ import { Question } from '@/domain/forum/enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
 import { Either, left, right } from '@/core/either'
 import { ResourceNotFoundError } from '../../../../core/errors/resource-not-found-error'
+import { Injectable } from '@nestjs/common'
 
 interface GetQuestionBySlugServiceRequest {
   slug: string
@@ -14,6 +15,7 @@ type GetQuestionBySlugServiceResponse = Either<
   }
 >
 
+@Injectable()
 export class GetQuestionBySlugService {
   constructor(private questionsRepository: QuestionsRepository) {}
 
