@@ -4,6 +4,7 @@ import { QuestionsRepository } from '@/domain/forum/application/repositories/que
 import { Either, left, right } from '@/core/either'
 import { NotAllowedError } from '../../../../core/errors/not-allowed-error'
 import { ResourceNotFoundError } from '../../../../core/errors/resource-not-found-error'
+import { Injectable } from '@nestjs/common'
 
 interface ChooseQuestionBestAnswerServiceRequest {
   authorId: string
@@ -16,6 +17,7 @@ type ChooseQuestionBestAnswerServiceResponse = Either<
   }
 >
 
+@Injectable()
 export class ChooseQuestionBestAnswerService {
   constructor(
     private questionsRepository: QuestionsRepository,

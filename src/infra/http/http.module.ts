@@ -23,6 +23,8 @@ import { DeleteAnswerService } from '@/domain/forum/application/services/delete-
 import { DeleteAnswerController } from './controllers/delete-answer.controller'
 import { FetchQuestionAnswersController } from './controllers/fetch-question-answers.controller'
 import { FetchQuestionAnswersService } from '@/domain/forum/application/services/fetch-question-answers'
+import { ChooseQuestionBestAnswerController } from './controllers/choose-question-best-answer.controller'
+import { ChooseQuestionBestAnswerService } from '@/domain/forum/application/services/choose-question-best-answer'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -38,6 +40,7 @@ import { FetchQuestionAnswersService } from '@/domain/forum/application/services
     EditAnswerController,
     DeleteAnswerController,
     FetchQuestionAnswersController,
+    ChooseQuestionBestAnswerController,
   ],
   providers: [
     CreateQuestionService,
@@ -51,6 +54,7 @@ import { FetchQuestionAnswersService } from '@/domain/forum/application/services
     EditAnswerService,
     DeleteAnswerService,
     FetchQuestionAnswersService,
+    ChooseQuestionBestAnswerService,
   ],
 })
 export class HttpModule {}
