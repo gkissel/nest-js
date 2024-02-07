@@ -33,6 +33,8 @@ import { CommentOnAnswerController } from './controllers/comment-on-answer.contr
 import { CommentOnAnswerService } from '@/domain/forum/application/services/comment-on-answer'
 import { DeleteAnswerCommentService } from '@/domain/forum/application/services/delete-answer-comment'
 import { DeleteAnswerCommentController } from './controllers/delete-answer-comment.controller'
+import { FetchQuestionCommentsController } from './controllers/fetch-question-comments.controller'
+import { FetchQuestionCommentsService } from '@/domain/forum/application/services/fetch-question-comments'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -53,6 +55,7 @@ import { DeleteAnswerCommentController } from './controllers/delete-answer-comme
     DeleteQuestionCommentController,
     CommentOnAnswerController,
     DeleteAnswerCommentController,
+    FetchQuestionCommentsController,
   ],
   providers: [
     CreateQuestionService,
@@ -71,6 +74,7 @@ import { DeleteAnswerCommentController } from './controllers/delete-answer-comme
     DeleteQuestionCommentService,
     CommentOnAnswerService,
     DeleteAnswerCommentService,
+    FetchQuestionCommentsService,
   ],
 })
 export class HttpModule {}
