@@ -13,6 +13,7 @@ services:
       PGDATA: /data/postgres
     volumes:
       - ./data/pg:/data/postgres
+  
   localstack:
     container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
     image: localstack/localstack
@@ -25,4 +26,11 @@ services:
     volumes:
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
-    
+ 
+  cache:
+    container_name: nest-clean-redis
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data:/data/redis
