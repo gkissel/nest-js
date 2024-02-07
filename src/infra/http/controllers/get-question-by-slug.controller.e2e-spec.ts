@@ -69,7 +69,7 @@ describe('Get question by slug (E2E)', () => {
     expect(response.body).toEqual({
       question: expect.objectContaining({
         title: 'Question 01',
-        author: 'John Doe',
+        author: user.name,
         attachments: [
           expect.objectContaining({
             title: 'Some attachment',
